@@ -88,3 +88,81 @@ function plusMinus(arr) {
 }
 
 // console.log(plusMinus([-1, -2, 1, 2, 4, 5, 0, 0]));
+
+function generateStaircase(n) {
+  const staircase = [];
+
+  // Build the 2D array
+  for (let i = 0; i < n; i++) {
+    const row = [];
+
+    // Add spaces
+    for (let j = 0; j < n - i - 1; j++) {
+      row.push(" ");
+    }
+
+    // Add hashtags
+    for (let k = 0; k < i + 1; k++) {
+      row.push("#");
+    }
+
+    staircase.push(row);
+  }
+
+  // Print the 2D array
+  for (let i = 0; i < n; i++) {
+    console.log(staircase[i].join(""));
+  }
+}
+
+// Example usage:
+// generateStaircase(5); // Change the argument to the desired height (e.g., 5)
+
+// async function sleep(millis) {
+//     await(setTimeout(100))
+// }
+
+function makeRequest(location) {
+  return new Promise((resolve, reject) => {
+    console.log(`Making request to ${location}`);
+    if (location === "Google") {
+      resolve("Google says hi!");
+    } else {
+      reject("We can only talk to Google");
+    }
+  });
+}
+
+function processRequest(response) {
+  return new Promise((resolve, reject) => {
+    console.log("processing response");
+    resolve(`Extra information + ${response}`);
+  });
+}
+
+// makeRequest("Facebook")
+//   .then((response) => {
+//     console.log("Response received");
+//   })
+//   .then((processedResponse) => {
+//     console.log(processedResponse);
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
+
+//Async and await helps to make promises easier to use.
+
+async function doWork() {
+  try {
+    const response = await makeRequest("Google");
+    console.log("Response received");
+
+    const processedRequest = await processRequest(response);
+    console.log(processedRequest);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+doWork();
