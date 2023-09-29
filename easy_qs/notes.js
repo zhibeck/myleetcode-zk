@@ -66,4 +66,3 @@ Promise.all([recordVideoOne, recordVideoTwo, recordVideoThree]).then(
   }
 );
 //Promise.race - returns only the promise, that is ready to be returned.
-//
