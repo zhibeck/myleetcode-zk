@@ -166,3 +166,52 @@ async function doWork() {
 }
 
 doWork();
+
+//415. Add Strings
+
+var addStrings = function (num1, num2) {
+  let first = num1.length - 1;
+  let second = num2.length - 1;
+  let carry = 0;
+  let result = "";
+
+  // Iterate through both strings as long as there are digits left in either string
+  while (first >= 0 || second >= 0 || carry > 0) {
+    let digit1 = first >= 0 ? parseInt(num1[first]) : 0;
+    let digit2 = second >= 0 ? parseInt(num2[second]) : 0;
+
+    // Calculate the sum of two digits and the carry
+    let sum = digit1 + digit2 + carry;
+
+    // Calculate the new carry for the next iteration
+    carry = Math.floor(sum / 10);
+
+    // Prepend the current digit to the result string
+    result = (sum % 10) + result;
+
+    // Move to the next digit
+    first--;
+    second--;
+  }
+
+  return result;
+};
+//35. Search Insert Position:
+
+var searchInsert = function (nums, target) {
+  let start = 0;
+  let end = nums.length - 1;
+
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+
+    if (target === nums[mid]) {
+      return mid;
+    } else if (target > nums[mid]) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  return start;
+};
