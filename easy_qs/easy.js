@@ -215,3 +215,31 @@ var searchInsert = function (nums, target) {
   }
   return start;
 };
+
+//2723
+var addTwoPromises = async function (promise1, promise2) {
+  let values = await Promise.all([promise1, promise2]);
+  return values.reduce((a, b) => a + b, 0);
+};
+
+//#2715
+
+var cancellable = function (fn, args, t) {
+  const timeout = setTimeout(function () {
+    fn(...args);
+  }, t);
+
+  return function cancelFn() {
+    clearTimeout(timeout);
+  };
+};
+
+// 2727:
+var isEmpty = function (obj) {
+  let keys = Object.keys(obj);
+  if (keys.length === 0) {
+    return true;
+  } else {
+    return false;
+  }
+};
