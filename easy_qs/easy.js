@@ -257,3 +257,28 @@ var removeElement = function (nums, val) {
   }
   return i;
 };
+
+var merge = function (nums1, m, nums2, n) {
+  nums1.splice(m);
+
+  //join n elements of nums2 into the nums1 array:
+  nums1.push(...nums2.slice(0, n));
+
+  //now sort the array, so the TC is O(m+n):
+  nums1.sort((a, b) => a - b);
+
+  //bubble sort method:
+  //   for (let i = 1; i < m+n; i++) {
+  //     if (nums1[i-1] || nums1[i-1] === 0) {
+  //       if (nums1[i] < nums1[i-1]) {
+  //         let tmp = nums1[i-1]
+  //         nums1[i-1] = nums1[i]
+  //         nums1[i] = tmp
+  //         i = i-2
+  //       }
+  //     }
+  //   }
+
+  //return nums1 as a result:
+  return nums1;
+};
